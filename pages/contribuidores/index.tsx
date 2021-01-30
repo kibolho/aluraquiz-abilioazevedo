@@ -1,12 +1,12 @@
-import React from "react";
-import fs from "fs";
-import NextImage from "next/image";
-import styled from "styled-components";
-import Widget from "../../src/components/Widget";
-import QuizLogo from "../../src/components/QuizLogo";
-import QuizBackground from "../../src/components/QuizBackground";
-import Footer from "../../src/components/Footer";
-import GitHubCorner from "../../src/components/GitHubCorner";
+import React from 'react';
+import fs from 'fs';
+import NextImage from 'next/image';
+import styled from 'styled-components';
+import Widget from '../../src/components/Widget';
+import QuizLogo from '../../src/components/QuizLogo';
+import QuizBackground from '../../src/components/QuizBackground';
+import Footer from '../../src/components/Footer';
+import GitHubCorner from '../../src/components/GitHubCorner';
 
 export const QuizContainer = styled.div`
   width: 100%;
@@ -20,16 +20,15 @@ export const QuizContainer = styled.div`
 `;
 
 function Image({ src }) {
-  const baseUrl =
-  process.env.NODE_ENV === 'development'
+  const baseUrl = process.env.NODE_ENV === 'development'
     ? 'http://localhost:3000'
-    : 'https://abilioazevedo.com.br'
+    : 'https://abilioazevedo.com.br';
 
   const thumbnail = `${baseUrl}/api/screenshot.png?url=${encodeURIComponent(
-    src
+    src,
   )}`;
   return (
-    <a href={src} style={{ display: "inline-block", fontSize: "0" }}>
+    <a href={src} style={{ display: 'inline-block', fontSize: '0' }}>
       <NextImage
         width="1024"
         height="768"
@@ -43,14 +42,14 @@ export default function ContributorsPage({ contributors }) {
   return (
     <QuizBackground backgroundImage="https://www.alura.com.br/assets/img/imersoes/react-2/fundo-do-mar-imersao-react-2-01.1609262503.svg">
       <QuizContainer
-        style={{ margin: "auto", padding: "5%", maxWidth: "1400px" }}
+        style={{ margin: 'auto', padding: '5%', maxWidth: '1400px' }}
       >
         <QuizLogo />
         <Widget
-          style={{ maxWidth: "350px", marginLeft: "auto", marginRight: "auto" }}
+          style={{ maxWidth: '350px', marginLeft: 'auto', marginRight: 'auto' }}
         >
-          <Widget.Header style={{ justifyContent: "center" }}>
-            <h1 style={{ fontSize: "25px" }}>Galeria de Projetos</h1>
+          <Widget.Header style={{ justifyContent: 'center' }}>
+            <h1 style={{ fontSize: '25px' }}>Galeria de Projetos</h1>
           </Widget.Header>
           <Widget.Content>
             <p>
@@ -62,26 +61,27 @@ export default function ContributorsPage({ contributors }) {
 
         <div
           style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-            gridGap: "1em",
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+            gridGap: '1em',
           }}
         >
           {contributors.map(({ user, projectUrl }, indice) => (
-            <Widget key={indice} style={{ maxWidth: "400px" }}>
-              <Widget.Header style={{ alignItems: "center" }}>
+            <Widget key={indice} style={{ maxWidth: '400px' }}>
+              <Widget.Header style={{ alignItems: 'center' }}>
                 <img
                   width="25"
                   height="25"
                   src={`https://github.com/${user}.png`}
-                  style={{ marginRight: "15px", borderRadius: "100%" }}
+                  style={{ marginRight: '15px', borderRadius: '100%' }}
                 />
                 <h2>
                   <a
                     href={`https://github.com/${user}`}
-                    style={{ color: "inherit" }}
+                    style={{ color: 'inherit' }}
                   >
-                    @{user}
+                    @
+                    {user}
                   </a>
                 </h2>
               </Widget.Header>
@@ -99,10 +99,10 @@ export default function ContributorsPage({ contributors }) {
 }
 
 export async function getStaticProps() {
-  const contributors = fs.readdirSync("./contributors").map((fileName) => {
+  const contributors = fs.readdirSync('./contributors').map((fileName) => {
     const [user, projectUrl] = fs
-      .readFileSync(`./contributors/${fileName}`, { encoding: "utf-8" })
-      .split("\n");
+      .readFileSync(`./contributors/${fileName}`, { encoding: 'utf-8' })
+      .split('\n');
 
     return {
       user,
