@@ -1,0 +1,5 @@
+{
+  "rewrites":[
+    { "source": "/api/screenshot.png","destination": "/api/screenshot" }
+  ]
+}
