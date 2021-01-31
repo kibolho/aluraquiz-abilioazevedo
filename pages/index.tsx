@@ -135,7 +135,7 @@ export async function getStaticProps() {
   });
   const prismaDBQuizes = data?.data?.listQuizes?.map(item=>{
     return {
-      id: `prismaDBQuizes__${item.id}`,
+      id: `prisma__${item.id}`,
       rawQuiz: null,
       title: item.title,
     }

@@ -1,29 +1,28 @@
 import { initializeApollo } from "@/lib/apollo/client";
+import { QuizesQuery, QuizQuery } from "@/lib/prisma/queries";
 import React from "react";
-import gql from "graphql-tag";
-
 import { ThemeProvider } from "styled-components";
 import QuizScreen from "../../src/screens/Quiz";
 import {
-  getExternalQuizes,
-  filterMyQuiz,
-  fetchQuizes,
   fetchQuiz,
+  fetchQuizes,
+  filterMyQuiz,
+  getExternalQuizes,
 } from "../../src/utils/apiContentful";
-import { QuizesQuery, QuizQuery } from "@/lib/prisma/queries";
 
-export default function QuizDaGaleraPage({ quiz }) {
+export default function QuizDaGaleraPage({ quiz: { theme, questions, bg } }) {
+  if (!theme || !questions || !bg) {
+  }
   return (
-    <ThemeProvider theme={quiz?.theme}>
-      <QuizScreen externalQuestions={quiz?.questions} externalBg={quiz?.bg} />
+    <ThemeProvider theme={theme}>
+      <QuizScreen externalQuestions={questions} externalBg={bg} />
     </ThemeProvider>
   );
 }
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const quizId = String(params.id);
-  console.log("quizId", quizId, quizId.includes("prismaDBQuizes"));
-  if (quizId.includes("prismaDBQuizes")) {
+  if (quizId.includes("prisma")) {
     const quizIdDBPrisma =
       quizId?.split("__").length > 1 ? quizId?.split("__")[1] : null;
     const apolloClient = initializeApollo();
@@ -34,9 +33,12 @@ export async function getStaticProps({ params }) {
         quizId: quizIdDBPrisma,
       },
     });
+    if (!data?.data?.getQuiz?.content) throw new Error("Quiz não existe");
+    const quiz = JSON.parse(data?.data?.getQuiz?.content);
+
     return {
       props: {
-        quiz: JSON.parse(data?.data.getQuiz.content),
+        quiz,
       },
     };
   }
@@ -70,26 +72,26 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export async function getStaticPaths() {
-  const quizes = await fetchQuizes();
-  const myQuiz = filterMyQuiz(quizes);
-  const externalQuizes = getExternalQuizes(myQuiz);
-  const apolloClient = initializeApollo();
+// export async function getStaticPaths() {
+//   const quizes = await fetchQuizes();
+//   const myQuiz = filterMyQuiz(quizes);
+//   const externalQuizes = getExternalQuizes(myQuiz);
+//   const apolloClient = initializeApollo();
 
-  const data = await apolloClient.query({
-    query: QuizesQuery,
-  });
-  const prismaDBQuizes = data?.data?.listQuizes?.map((item) => {
-    return {
-      id: `prismaDBQuizes__${item.id}`,
-      rawQuiz: null,
-      title: item.title,
-    };
-  });
-  return {
-    paths: [...quizes, ...externalQuizes, ...prismaDBQuizes].map(
-      (quiz) => `/quiz/${quiz.id}`
-    ),
-    fallback: true,
-  };
-}
+//   const data = await apolloClient.query({
+//     query: QuizesQuery,
+//   });
+//   const prismaDBQuizes = data?.data?.listQuizes?.map((item) => {
+//     return {
+//       id: `prisma__${item.id}`,
+//       rawQuiz: null,
+//       title: item.title,
+//     };
+//   });
+//   return {
+//     paths: [...quizes, ...externalQuizes, ...prismaDBQuizes].map(
+//       (quiz) => `/quiz/${quiz.id}`
+//     ),
+//     fallback: true,
+//   };
+// }

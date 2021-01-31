@@ -13,7 +13,7 @@ import GitHubCorner from "../../src/components/GitHubCorner";
 import QuizBackground from "../../src/components/QuizBackground";
 import { addApolloState, initializeApollo } from "../../src/lib/apollo/client";
 import { fetchQuizes, filterMyQuiz } from "../../src/utils/apiContentful";
-import AddQuizForm from "./screen";
+import AddQuizForm from "./form";
 
 const quizFormatError = "O Quiz está no formado errado";
 const schemaContent = yup
@@ -81,23 +81,29 @@ function AddQuiz({ quiz }) {
   );
 
   useEffect(() => {
-    setGlobalError(error?.message);
+    if (
+      error?.message?.includes(
+        "Unique constraint failed on the fields: (`email`)"
+      )
+    ) {
+      setGlobalError(
+        "Você já enviou um quiz, só estamos aceitando um quiz por pessoa =)"
+      );
+    } else {
+      setGlobalError(error?.message);
+    }
   }, [error]);
 
   useEffect(() => {
-    console.log("sucesso data", data);
-    if (data?.id) {
-      Router.push("/addQuiz/success");
+    if (data?.createQuiz?.id) {
+      Router.push(`/addQuiz/success?quizId=${data?.createQuiz?.id}`);
     }
   }, [data]);
 
   const onSubmit = async ({ title, content, authorEmail, authorName }) => {
     setGlobalError("");
-    console.log("onSubmit", { title, content, authorEmail, authorName });
     try {
       const quiz = JSON.parse(content);
-      console.log(quiz);
-
       schemaContent
         .validate(quiz, { abortEarly: false })
         .then(async () => {
@@ -111,7 +117,6 @@ function AddQuiz({ quiz }) {
           });
         })
         .catch((err) => {
-          console.log(err.errors);
           setGlobalError(err?.errors?.length > 0 ? err.errors[0] : "");
         });
     } catch (e) {

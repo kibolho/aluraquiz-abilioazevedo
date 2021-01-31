@@ -1,35 +1,14 @@
+import { CustomATag } from "@/components/CustomATag";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import styled from "styled-components";
 import * as yup from "yup";
 import BackLinkArrow from "../../../src/components/BackLinkArrow";
 import Button from "../../../src/components/Button";
 import Input from "../../../src/components/Input";
-import Link from "../../../src/components/Link";
 import QuizLogo from "../../../src/components/QuizLogo";
 import Widget from "../../../src/components/Widget";
-
-const CustomATag = styled(Link)`
-  outline: 0;
-  text-decoration: none;
-  color: ${({ theme }) => theme.colors.contrastText};
-  background-color: ${({ theme }) => `${theme.colors.primary}40`};
-  padding: 10px 15px;
-  margin-top: 8px;
-  margin-bottom: 8px;
-  cursor: pointer;
-  border-radius: ${({ theme }) => theme.borderRadius};
-  transition: 0.3s;
-  display: block;
-  text-align: center;
-
-  &:hover,
-  &:focus {
-    opacity: 0.5;
-  }
-`;
 
 const schema = yup.object().shape({
   title: yup.string().required("Campo Obrigatório"),
@@ -47,15 +26,7 @@ export default function AddQuizForm({ onSubmit, error }) {
   const [authorName, setAuthorName] = useState("");
   const [authorEmail, setAuthorEmail] = useState("");
 
-  const defaultValues = {
-    title: title,
-    content: content,
-    authorEmail: authorEmail,
-    authorName: authorName,
-  };
-
   const { register, handleSubmit, errors } = useForm({
-    defaultValues,
     shouldFocusError: true,
     resolver: yupResolver(schema),
   });
@@ -121,13 +92,20 @@ export default function AddQuizForm({ onSubmit, error }) {
               }}
               type="text"
               name="content"
-              placeholder="Conteúdo do Quiz, deve seguir o padrão ao lado"
+              placeholder="Conteúdo do Quiz, deve seguir o modelo JSON abaixo, abra o modelo, altere os valores e questões e cole neste campo"
               rows={8}
               ref={register()}
               value={content}
             />
             <p>{errors.content?.message}</p>
             <p>{error}</p>
+            <CustomATag
+              href="/api/db"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Abrir Modelo
+            </CustomATag>
             <Button
               disabled={!content || !authorName || !title || !authorEmail}
               type="submit"
