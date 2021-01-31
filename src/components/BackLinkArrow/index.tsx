@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import Link from '../Link';
 
 const StyledLink = styled(Link)`
@@ -23,7 +22,3 @@ export default function BackLinkArrow({ href }) {
     </StyledLink>
   );
 }
-
-BackLinkArrow.propTypes = {
-  href: PropTypes.string.isRequired,
-};

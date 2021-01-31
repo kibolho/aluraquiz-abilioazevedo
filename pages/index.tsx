@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import Head from "next/head";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
@@ -18,17 +17,9 @@ import Footer from "../src/components/Footer";
 import GitHubCorner from "../src/components/GitHubCorner";
 import Input from "../src/components/Input";
 import Button from "../src/components/Button";
-
-const QuizContainer = styled.div`
-  width: 100%;
-  max-width: 350px;
-  padding-top: 45px;
-  margin: auto 10%;
-  @media screen and (max-width: 500px) {
-    margin: auto;
-    padding: 15px;
-  }
-`;
+import QuizContainer from "@/components/QuizContainer";
+import { initializeApollo } from "@/lib/apollo/client";
+import { QuizesQuery } from "@/lib/prisma/queries";
 
 export default function Home({ quiz, quizes }) {
   const router = useRouter();
@@ -60,7 +51,7 @@ export default function Home({ quiz, quizes }) {
               <form
                 onSubmit={function (infosDoEvento) {
                   infosDoEvento.preventDefault();
-                  router.push(`/quiz?name=${name}`);
+                  router.push(`/quiz?playerName=${name}`);
                 }}
               >
                 <Input
@@ -95,22 +86,20 @@ export default function Home({ quiz, quizes }) {
                   router.push(`/addQuiz`);
                 }}
               >
-              <h1>Quizes da Galera</h1>
+                <h1>Quizes da Galera</h1>
 
-              <ul>
-                {quizes.map((quiz) => {
-                  return (
-                    <li key={quiz.id}>
-                      <Widget.Topic as={Link} href={`/quiz/${quiz.id}`}>
-                        {quiz.title}
-                      </Widget.Topic>
-                    </li>
-                  );
-                })}
-              </ul>
-              <Button type="submit">
-                  Adicionar meu Quiz
-                </Button>
+                <ul>
+                  {quizes.map((quiz) => {
+                    return (
+                      <li key={quiz.id}>
+                        <Widget.Topic as={Link} href={`/quiz/${quiz.id}`}>
+                          {quiz.title}
+                        </Widget.Topic>
+                      </li>
+                    );
+                  })}
+                </ul>
+                <Button type="submit">Adicionar meu Quiz</Button>
               </form>
             </Widget.Content>
           </Widget>
@@ -138,10 +127,23 @@ export async function getStaticProps() {
     (item) => item.id !== "6olZW8JSHnZUConzT144BJ"
   );
   const externalQuizes = getExternalQuizes(myQuiz);
+
+  const apolloClient = initializeApollo();
+
+  const data = await apolloClient.query({
+    query: QuizesQuery,
+  });
+  const prismaDBQuizes = data?.data?.listQuizes?.map(item=>{
+    return {
+      id: `prismaDBQuizes__${item.id}`,
+      rawQuiz: null,
+      title: item.title,
+    }
+  })
   return {
     props: {
       quiz: myQuiz?.rawQuiz,
-      quizes: [...externalQuizes, ...otherQuizes],
+      quizes: [...prismaDBQuizes,...externalQuizes, ...otherQuizes],
     },
   };
 }

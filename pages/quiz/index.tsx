@@ -1,13 +1,17 @@
-/* eslint-disable react/prop-types */
 import React from "react";
 import { ThemeProvider } from "styled-components";
 import QuizScreen from "../../src/screens/Quiz";
-import { addNewQuiz, fetchQuizes, filterMyQuiz } from "../../src/utils/apiContentful";
+import { fetchQuizes, filterMyQuiz } from "../../src/utils/apiContentful";
+import { useRouter } from "next/router";
 
-export default function QuizDaGaleraPage({ quiz }) {
+export default function MyQuiz({ quiz }) {
+  const {
+    query: { playerName },
+  } = useRouter();
+
   return (
     <ThemeProvider theme={quiz.theme}>
-      <QuizScreen externalQuestions={quiz.questions} externalBg={quiz.bg} />
+      <QuizScreen playerName={String(playerName)} externalQuestions={quiz.questions} externalBg={quiz.bg} />
     </ThemeProvider>
   );
 }
@@ -15,7 +19,6 @@ export default function QuizDaGaleraPage({ quiz }) {
 export async function getStaticProps() {
   const quizes = await fetchQuizes();
   const quiz = filterMyQuiz(quizes);
-  addNewQuiz("Teste",quiz?.rawQuiz)
   return {
     props: {
       quiz: quiz?.rawQuiz,

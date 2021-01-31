@@ -1,6 +1,8 @@
 import React from "react";
 import { createGlobalStyle } from "styled-components";
 import Head from "next/head";
+import { ApolloProvider } from "@apollo/react-hooks";
+import { useApollo } from "../src/lib/apollo/client";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -26,8 +28,9 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-// eslint-disable-next-line react/prop-types
-export default function App({ Component, pageProps, quiz }) {
+export default function App({ Component, pageProps }) {
+  const apolloClient = useApollo(pageProps);
+
   return (
     <>
       <Head>
@@ -39,7 +42,9 @@ export default function App({ Component, pageProps, quiz }) {
       </Head>
       <GlobalStyle />
       {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-      <Component {...pageProps} />
+      <ApolloProvider client={apolloClient}>
+        <Component {...pageProps} />
+      </ApolloProvider>
     </>
   );
 }

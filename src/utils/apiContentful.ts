@@ -1,5 +1,3 @@
-import { consoleLogObject } from "./parse";
-
 const contentful = require("contentful");
 
 const client = contentful.createClient({
@@ -52,12 +50,4 @@ export function getExternalQuizes(quiz){
   });
 }
 
-export function addNewQuiz(title,quiz){
-  client.createEntry({
-    fields: {
-      title: title,
-      rawQuiz: quiz,
-    },
-  })
-}
 export default {fetchQuizes,fetchQuiz,filterMyQuiz,getExternalQuizes}

@@ -1,6 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const InputBase = styled.input`
   width: 100%;
@@ -11,34 +10,34 @@ const InputBase = styled.input`
   background-color: ${({ theme }) => theme.colors.mainBg};
   border-radius: ${({ theme }) => theme.borderRadius};
   outline: 0;
-  margin-bottom: 25px;
-  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  margin-top: 12px;
+  margin-bottom: 12px;
+
+  ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: ${({ theme }) => theme.colors.contrastText}DD;
     opacity: 1; /* Firefox */
   }
-
 `;
-
-export default function Input({ onChange, placeholder, ...props }) {
-  return (
-    <div>
-      <InputBase
-        placeholder={placeholder}
-        onChange={onChange}
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        {...props}
-      />
-    </div>
-  );
+interface InputProps extends React.HTMLProps<HTMLInputElement> {
+  onChange: (arg: any) => void;
 }
 
-Input.defaultProps = {
-  value: '',
-};
+const Input = React.forwardRef(
+  ({ onChange, placeholder, value = "", ...props }: InputProps, ref) => {
+    return (
+      <div>
+        <InputBase
+          placeholder={placeholder}
+          onChange={onChange}
+          value={value}
+          ref={ref}
+          // eslint-disable-next-line react/jsx-props-no-spreading
+          {...props}
+        />
+      </div>
+    );
+  }
+);
 
-Input.propTypes = {
-  onChange: PropTypes.func.isRequired,
-  placeholder: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  value: PropTypes.string,
-};
+export default Input;
