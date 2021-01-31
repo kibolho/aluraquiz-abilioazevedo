@@ -12,6 +12,7 @@
     "@crello/react-lottie": "^0.0.11",
     "axios": "^0.21.1",
     "chrome-aws-lambda": "^5.5.0",
+    "contentful": "^8.1.7",
     "framer-motion": "^3.2.1",
     "next": "latest",
     "node-html-parser": "^2.1.0",

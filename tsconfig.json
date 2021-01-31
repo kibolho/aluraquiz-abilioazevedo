@@ -28,7 +28,7 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx", "src/components/alert.js",
+    "**/*.tsx", "src/components/alert.js", "pages/quiz/[id].js",
   ],
   "exclude": [
     "node_modules"
