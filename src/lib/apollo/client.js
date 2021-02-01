@@ -3,16 +3,19 @@ import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
 import { concatPagination } from "@apollo/client/utilities";
 import merge from "deepmerge";
 import isEqual from "lodash/isEqual";
+import { getBaseUrl } from "src/utils/provider";
 
 export const APOLLO_STATE_PROP_NAME = "__APOLLO_STATE__";
 
 let apolloClient;
 
 function createApolloClient() {
+  const baseUrl = getBaseUrl();
+
   return new ApolloClient({
     ssrMode: typeof window === "undefined",
     link: new HttpLink({
-      uri: "http://localhost:3000/api/prisma", // Server URL (must be absolute)
+      uri: `${baseUrl}/api/prisma`, // Server URL (must be absolute)
       credentials: "same-origin", // Additional fetch() options like `credentials` or `headers`
     }),
     cache: new InMemoryCache({

@@ -2,7 +2,7 @@ import React from "react";
 import { createGlobalStyle } from "styled-components";
 import Head from "next/head";
 import { ApolloProvider } from "@apollo/react-hooks";
-import { useApollo } from "../src/lib/apollo/client";
+import { useApollo } from "../lib/apollo/client";
 
 const GlobalStyle = createGlobalStyle`
   * {

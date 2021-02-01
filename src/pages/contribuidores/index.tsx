@@ -1,10 +1,10 @@
 import React from "react";
 import fs from "fs";
-import Widget from "../../src/components/Widget";
-import QuizLogo from "../../src/components/QuizLogo";
-import QuizBackground from "../../src/components/QuizBackground";
-import Footer from "../../src/components/Footer";
-import GitHubCorner from "../../src/components/GitHubCorner";
+import Widget from "../../components/Widget";
+import QuizLogo from "../../components/QuizLogo";
+import QuizBackground from "../../components/QuizBackground";
+import Footer from "../../components/Footer";
+import GitHubCorner from "../../components/GitHubCorner";
 import { fetchQuizes, filterMyQuiz } from "src/utils/apiContentful";
 import { addApolloState, initializeApollo } from "@/lib/apollo/client";
 import { ThemeProvider } from "styled-components";

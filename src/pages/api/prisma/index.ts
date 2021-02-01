@@ -9,7 +9,7 @@ import {
   stringArg,
 } from 'nexus'
 import path from 'path'
-import prisma from '../../../src/lib/prisma'
+import prisma from '../../../lib/prisma'
 
 export const GQLDate = asNexusMethod(GraphQLDate, 'date')
 

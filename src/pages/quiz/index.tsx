@@ -1,7 +1,7 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
-import QuizScreen from "../../src/screens/Quiz";
-import { fetchQuizes, filterMyQuiz } from "../../src/utils/apiContentful";
+import QuizScreen from "../../screens/Quiz";
+import { fetchQuizes, filterMyQuiz } from "../../utils/apiContentful";
 import { useRouter } from "next/router";
 
 export default function MyQuiz({ quiz }) {

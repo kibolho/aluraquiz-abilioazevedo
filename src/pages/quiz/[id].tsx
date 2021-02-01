@@ -2,13 +2,13 @@ import { initializeApollo } from "@/lib/apollo/client";
 import { QuizesQuery, QuizQuery } from "@/lib/prisma/queries";
 import React from "react";
 import { ThemeProvider } from "styled-components";
-import QuizScreen from "../../src/screens/Quiz";
+import QuizScreen from "../../screens/Quiz";
 import {
   fetchQuiz,
   fetchQuizes,
   filterMyQuiz,
   getExternalQuizes,
-} from "../../src/utils/apiContentful";
+} from "../../utils/apiContentful";
 
 export default function QuizDaGaleraPage({ quiz: { theme, questions, bg } }) {
   if (!theme || !questions || !bg) {

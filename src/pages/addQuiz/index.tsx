@@ -8,12 +8,11 @@ import React, { useEffect, useState } from "react";
 import LoadingWidget from "src/screens/Quiz/LoadingWidget";
 import { ThemeProvider } from "styled-components";
 import * as yup from "yup";
-import Footer from "../../src/components/Footer";
-import GitHubCorner from "../../src/components/GitHubCorner";
-import QuizBackground from "../../src/components/QuizBackground";
-import { addApolloState, initializeApollo } from "../../src/lib/apollo/client";
-import { fetchQuizes, filterMyQuiz } from "../../src/utils/apiContentful";
-import AddQuizForm from "./form";
+import Footer from "@/components/Footer";
+import GitHubCorner from "@/components/GitHubCorner";
+import QuizBackground from "@/components/QuizBackground";
+import { fetchQuizes, filterMyQuiz } from "../../utils/apiContentful";
+import AddQuizForm from "@/components/AddQuizForm";
 
 const quizFormatError = "O Quiz está no formado errado";
 const schemaContent = yup
@@ -125,7 +124,7 @@ function AddQuiz({ quiz }) {
   };
 
   return (
-    <ThemeProvider theme={quiz?.theme}>
+    <ThemeProvider theme={quiz.theme}>
       <QuizBackground backgroundImage={quiz.bg}>
         <Head>
           <title>Crie seu Quiz - AluraQuiz</title>
@@ -154,14 +153,12 @@ export async function getStaticProps() {
   const quizes = await fetchQuizes();
   const myQuiz = filterMyQuiz(quizes);
 
-  const apolloClient = initializeApollo();
-
-  return addApolloState(apolloClient, {
+  return {
     props: {
       quiz: myQuiz?.rawQuiz,
     },
-    revalidate: 1,
-  });
+    revalidate: 600,
+  };
 }
 
 export default AddQuiz;

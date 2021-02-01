@@ -8,10 +8,13 @@
     "eslint:init": "eslint --init",
     "lint": "eslint ./ --fix",
     "generate": "npm -s run generate:prisma && npm -s run generate:nexus",
-    "generate:prisma": "prisma generate --schema=./src/lib/prisma/schema.prisma",
+    "generate:prisma": "prisma generate --schema=src/lib/prisma/schema.prisma",
     "generate:nexus": "ts-node --transpile-only -P nexus.tsconfig.json pages/api/prisma",
     "migrate:prisma": "prisma migrate dev --name init --preview-feature --schema=./src/lib/prisma/schema.prisma",
     "deploy:migrate:prisma": "prisma migrate deploy --preview-feature --schema=./src/lib/prisma/schema.prisma"
+  },
+  "prisma": {
+    "schema": "src/lib/prisma/schema.prisma"
   },
   "dependencies": {
     "@apollo/client": "3.1.1",

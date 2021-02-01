@@ -1,4 +1,4 @@
-import { filterMyQuiz,fetchQuizes } from "../../src/utils/apiContentful";
+import { filterMyQuiz,fetchQuizes } from "../../utils/apiContentful";
 
 export default async function dbHandler(request, response) {
   if (request.method === 'OPTIONS') {

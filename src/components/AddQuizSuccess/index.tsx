@@ -1,29 +1,21 @@
+import { CustomATag } from "@/components/CustomATag";
 import QuizContainer from "@/components/QuizContainer";
 import { motion } from "framer-motion";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import React from "react";
 import SuccessWidget from "src/screens/Quiz/SuccessWidget";
 import { ThemeProvider } from "styled-components";
-import Footer from "../../../src/components/Footer";
-import GitHubCorner from "../../../src/components/GitHubCorner";
-import QuizBackground from "../../../src/components/QuizBackground";
-import {
-  addApolloState,
-  initializeApollo,
-} from "../../../src/lib/apollo/client";
-import { fetchQuizes, filterMyQuiz } from "../../../src/utils/apiContentful";
-import { useRouter } from "next/router";
-import { CustomATag } from "@/components/CustomATag";
+import { addApolloState, initializeApollo } from "../../lib/apollo/client";
+import { fetchQuizes, filterMyQuiz } from "../../utils/apiContentful";
+import Footer from "../Footer";
+import GitHubCorner from "../GitHubCorner";
+import QuizBackground from "../QuizBackground";
 
-function AddQuizSuccess({ quiz, params }) {
+function AddQuizSuccess({ quiz }) {
   const {
     query: { quizId },
   } = useRouter();
-
-  const baseUrl =
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:3000"
-      : "https://abilioazevedo.com.br";
 
   return (
     <ThemeProvider theme={quiz?.theme}>

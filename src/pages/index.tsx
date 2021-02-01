@@ -6,17 +6,17 @@ import {
   fetchQuizes,
   filterMyQuiz,
   getExternalQuizes,
-} from "../src/utils/apiContentful";
+} from "../utils/apiContentful";
 import { ThemeProvider } from "styled-components";
 
-import Widget from "../src/components/Widget";
-import Link from "../src/components/Link";
-import QuizLogo from "../src/components/QuizLogo";
-import QuizBackground from "../src/components/QuizBackground";
-import Footer from "../src/components/Footer";
-import GitHubCorner from "../src/components/GitHubCorner";
-import Input from "../src/components/Input";
-import Button from "../src/components/Button";
+import Widget from "../components/Widget";
+import Link from "../components/Link";
+import QuizLogo from "../components/QuizLogo";
+import QuizBackground from "../components/QuizBackground";
+import Footer from "../components/Footer";
+import GitHubCorner from "../components/GitHubCorner";
+import Input from "../components/Input";
+import Button from "../components/Button";
 import QuizContainer from "@/components/QuizContainer";
 import { initializeApollo } from "@/lib/apollo/client";
 import { QuizesQuery } from "@/lib/prisma/queries";
@@ -121,29 +121,35 @@ export default function Home({ quiz, quizes }) {
 }
 
 export async function getStaticProps() {
-  const quizes = await fetchQuizes();
-  const myQuiz = filterMyQuiz(quizes);
-  const otherQuizes = quizes.filter(
+  const quizesCobtebtful = await fetchQuizes();
+  const myQuiz = filterMyQuiz(quizesCobtebtful);
+  const otherQuizes = quizesCobtebtful.filter(
     (item) => item.id !== "6olZW8JSHnZUConzT144BJ"
   );
   const externalQuizes = getExternalQuizes(myQuiz);
+  let quizes = [...externalQuizes, ...otherQuizes];
+  try {
+    const apolloClient = initializeApollo();
 
-  const apolloClient = initializeApollo();
-
-  const data = await apolloClient.query({
-    query: QuizesQuery,
-  });
-  const prismaDBQuizes = data?.data?.listQuizes?.map(item=>{
-    return {
-      id: `prisma__${item.id}`,
-      rawQuiz: null,
-      title: item.title,
-    }
-  })
+    const data = await apolloClient.query({
+      query: QuizesQuery,
+    });
+    console.log("data", data);
+    const prismaDBQuizes = data?.data?.listQuizes?.map((item) => {
+      return {
+        id: `prisma__${item.id}`,
+        rawQuiz: null,
+        title: item.title,
+      };
+    });
+    quizes = [...quizes, ...prismaDBQuizes];
+  } catch (err) {
+    console.log(err);
+  }
   return {
     props: {
       quiz: myQuiz?.rawQuiz,
-      quizes: [...prismaDBQuizes,...externalQuizes, ...otherQuizes],
+      quizes,
     },
   };
 }

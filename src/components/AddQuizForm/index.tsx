@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
-import BackLinkArrow from "../../../src/components/BackLinkArrow";
-import Button from "../../../src/components/Button";
-import Input from "../../../src/components/Input";
-import QuizLogo from "../../../src/components/QuizLogo";
-import Widget from "../../../src/components/Widget";
+import BackLinkArrow from "../BackLinkArrow";
+import Button from "../Button";
+import Input from "../Input";
+import QuizLogo from "../QuizLogo";
+import Widget from "../Widget";
 
 const schema = yup.object().shape({
   title: yup.string().required("Campo Obrigatório"),

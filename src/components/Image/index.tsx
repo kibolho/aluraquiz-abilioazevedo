@@ -1,12 +1,10 @@
 import NextImage from "next/image";
+import { getBaseUrl } from "src/utils/provider";
 
 function Image({ src }) {
-  const baseUrl =
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:3000"
-      : "https://abilioazevedo.com.br";
+  
 
-  const thumbnail = `${baseUrl}/api/screenshot.png?url=${encodeURIComponent(
+  const thumbnail = `${getBaseUrl()}/api/screenshot.png?url=${encodeURIComponent(
     src
   )}`;
   return (
