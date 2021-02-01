@@ -1,7 +1,5 @@
 import React from "react";
 import fs from "fs";
-import NextImage from "next/image";
-import styled from "styled-components";
 import Widget from "../../src/components/Widget";
 import QuizLogo from "../../src/components/QuizLogo";
 import QuizBackground from "../../src/components/QuizBackground";
@@ -9,33 +7,9 @@ import Footer from "../../src/components/Footer";
 import GitHubCorner from "../../src/components/GitHubCorner";
 import { fetchQuizes, filterMyQuiz } from "src/utils/apiContentful";
 import { addApolloState, initializeApollo } from "@/lib/apollo/client";
-
-export const QuizContainer = styled.div`
-  width: 100%;
-  max-width: 350px;
-  padding-top: 45px;
-  margin: auto 10%;
-  @media screen and (max-width: 500px) {
-    margin: auto;
-    padding: 15px;
-  }
-`;
-
-function Image({ src }) {
-  const baseUrl =
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:3000"
-      : "https://abilioazevedo.com.br";
-
-  const thumbnail = `${baseUrl}/api/screenshot.png?url=${encodeURIComponent(
-    src
-  )}`;
-  return (
-    <a href={src} style={{ display: "inline-block", fontSize: "0" }}>
-      <NextImage width="1024" height="768" src={thumbnail} />
-    </a>
-  );
-}
+import { ThemeProvider } from "styled-components";
+import QuizContainer from "@/components/QuizContainer";
+import Image from "@/components/Image";
 
 export default function ContributorsPage({ contributors, quiz }) {
   return (
