@@ -96,7 +96,7 @@ React gives us the possibility to work with componentization. With hooks we can 
 ### Base Layout
 
 - [Link](https://www.figma.com/file/cg1MIzSRRss8ggpypQbmdD/AluraQuiz?node-id=0%3A1)
-- 
+
 <!-- GETTING STARTED -->
 ## Getting Started
 ### Prerequisites
@@ -163,29 +163,10 @@ Project Link: [https://github.com/kibolho/aluraquiz-abilioazevedo](https://githu
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
-* [Alura](https://aluraquiz-base.alura-challenges.vercel.app/contribuidores)
+* [Alura](https://github.com/alura-challenges/aluraquiz-base)
 * [Img Shields](https://shields.io)
 * [Choose an Open Source License](https://choosealicense.com)
 * [GitHub Pages](https://pages.github.com)
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/kibolho/aluraquiz-abilioazevedo.svg?style=for-the-badge
-[contributors-url]: https://github.com/kibolho/aluraquiz-abilioazevedo/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/kibolho/aluraquiz-abilioazevedo.svg?style=for-the-badge
-[forks-url]: https://github.com/kibolho/aluraquiz-abilioazevedo/network/members
-[stars-shield]: https://img.shields.io/github/stars/kibolho/aluraquiz-abilioazevedo.svg?style=for-the-badge
-[stars-url]: https://github.com/kibolho/aluraquiz-abilioazevedo/stargazers
-[issues-shield]: https://img.shields.io/github/issues/kibolho/aluraquiz-abilioazevedo.svg?style=for-the-badge
-[issues-url]: https://github.com/kibolho/aluraquiz-abilioazevedo/issues
-[license-shield]: https://img.shields.io/badge/licence-MIT-blue.svg?style=flat-square
-[license-url]: https://img.shields.io/github/license/kibolho/custom-hooks.svg?style=for-the-badge
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://www.linkedin.com/in/abilioazevedo/
-[product-screenshot]: /_docs/aluraquiz-base.png
-
-
 # Contributors 
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
@@ -217,3 +198,20 @@ Project Link: [https://github.com/kibolho/aluraquiz-abilioazevedo](https://githu
 
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/kibolho/aluraquiz-abilioazevedo.svg?style=for-the-badge
+[contributors-url]: https://github.com/kibolho/aluraquiz-abilioazevedo/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/kibolho/aluraquiz-abilioazevedo.svg?style=for-the-badge
+[forks-url]: https://github.com/kibolho/aluraquiz-abilioazevedo/network/members
+[stars-shield]: https://img.shields.io/github/stars/kibolho/aluraquiz-abilioazevedo.svg?style=for-the-badge
+[stars-url]: https://github.com/kibolho/aluraquiz-abilioazevedo/stargazers
+[issues-shield]: https://img.shields.io/github/issues/kibolho/aluraquiz-abilioazevedo.svg?style=for-the-badge
+[issues-url]: https://github.com/kibolho/aluraquiz-abilioazevedo/issues
+[license-shield]: https://img.shields.io/github/license/kibolho/aluraquiz-abilioazevedo.svg?style=for-the-badge
+[license-url]: https://github.com/kibolho/custom-hooks/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/abilioazevedo/
+[product-screenshot]: /_docs/aluraquiz-base.png
