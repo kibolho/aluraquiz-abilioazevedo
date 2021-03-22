@@ -1,10 +1,10 @@
 import QuizContainer from "@/components/QuizContainer";
-import { CreateQuizMutation } from "@/lib/prisma/mutations";
 import { useMutation } from "@apollo/react-hooks";
 import { motion } from "framer-motion";
 import Head from "next/head";
 import Router from "next/router";
 import React, { useEffect, useState } from "react";
+import CreateQuizMutation from "src/graphql/mutations/quizCreate";
 import LoadingWidget from "src/screens/Quiz/LoadingWidget";
 import { ThemeProvider } from "styled-components";
 import * as yup from "yup";

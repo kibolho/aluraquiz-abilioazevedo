@@ -1,5 +1,24 @@
 {
-  "rewrites":[
-    { "source": "/api/screenshot.png","destination": "/api/screenshot" }
-  ]
+  "version": 2,
+  "rewrites": [
+    { "source": "/api/screenshot.png", "destination": "/api/screenshot" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    }
+  ],
+  "build": {
+    "env": {
+      "APP_AUTH": "@app_auth_heroku_postgresql",
+      "DATABASE_URL": "@database_url_heroku_postgresql",
+      "DEBUG": "prisma-client,engine"
+    }
+  }
 }

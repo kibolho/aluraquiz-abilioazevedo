@@ -19,7 +19,7 @@ import Input from "../components/Input";
 import Button from "../components/Button";
 import QuizContainer from "@/components/QuizContainer";
 import { initializeApollo } from "@/lib/apollo/client";
-import { QuizesQuery } from "@/lib/prisma/queries";
+import QuizesQuery from "../graphql/queries/quizes";
 
 export default function Home({ quiz, quizes }) {
   const router = useRouter();

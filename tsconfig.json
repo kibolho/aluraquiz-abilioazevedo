@@ -7,7 +7,8 @@
       "@/components/*": ["src/components/*"],
       "@/lib/*": ["src/lib/*"],
       "@/styles/*": ["src/styles/*"],
-      "@": ["./"]
+      "@/graphql/*": ["src/graphql/*"],
+      "@": ["./"],
     },
     "allowJs": true,
     "skipLibCheck": true,
@@ -20,7 +21,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve"
-  },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  },, "src/lib/graphql/resolvers/mutations/auth.js",, "src/lib/graphql/resolvers/utils/getUserId.js", "src/lib/graphql/resolvers/utils/generateToken.js", "src/lib/graphql/resolvers/index.js", "src/lib/graphql/resolvers/queries/users.js", "src/lib/graphql/resolvers/queries/user.js", "src/lib/graphql/resolvers/queries/quizes.js", "src/lib/graphql/resolvers/queries/index.js", "src/lib/graphql/resolvers/queries/hello.js", "src/lib/graphql/resolvers/mutations/userUpdate.js", "src/lib/graphql/resolvers/mutations/quizCreate.js" "src/lib/graphql/resolvers/mutations/index.js"
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/api/index.js"],
   "exclude": ["node_modules"]
 }

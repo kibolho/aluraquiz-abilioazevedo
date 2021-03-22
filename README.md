@@ -1,29 +1,192 @@
-# AluraQuiz Base
+<!--
+*** Thanks for checking out the Best-README-Template. If you have a suggestion
+*** that would make this better, please fork the repo and create a pull request
+*** or simply open an issue with the tag "enhancement".
+*** Thanks again! Now go create something AMAZING! :D
+-->
 
-Seja bem vindo ao projeto base do AluraQuiz!!! Passos fundamentais:
-- Marque esse projeto com uma estrela
-- Siga as instruções das aulas e conteúdo extra da Imersão React Next.js
-- Faça o deploy na Vercel e compartilhe
 
-![Capa do Projeto](/_docs/aluraquiz-base.png)
 
-## Como colocar o meu projeto na vitrine da imersão?
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-> [Vitrine da Imersão](https://aluraquiz-base.alura-challenges.vercel.app/contribuidores)
 
-- [Siga os passos](/CONTRIBUTING.md)
 
-## Onde está o Layout base?
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/kibolho/aluraquiz-abilioazevedo">
+    <img src=".github/logo.png" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">Alura Quizzes</h3>
+
+  <p align="center">
+    Next.JS quizzes application.
+    <br />
+    <a href="https://github.com/kibolho/aluraquiz-abilioazevedo"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://quiz.abilioazevedo.com.br">View Demo</a>
+    ·
+    <a href="https://github.com/kibolho/aluraquiz-abilioazevedo/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/kibolho/aluraquiz-abilioazevedo/issues">Request Feature</a>
+  </p>
+</p>
+
+
+
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+      <ul>
+        <li><a href="#base-layout">Base Layout</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
+  </ol>
+</details>
+
+
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+[![Product Name Screen Shot][product-screenshot]](https://reactjs.org/docs/hooks-intro.html)
+Hooks are a new addition in React 16.8. They let you use state and other React features without writing a class.
+
+React gives us the possibility to work with componentization. With hooks we can componentize classes and functions more easily. And we can create custom hooks and share via NPM.
+
+
+### Built With
+
+* [React.JS](https://reactjs.org/)
+* [Next.JS](https://nextjs.org/)
+
+### Base Layout
+
 - [Link](https://www.figma.com/file/cg1MIzSRRss8ggpypQbmdD/AluraQuiz?node-id=0%3A1)
+- 
+<!-- GETTING STARTED -->
+## Getting Started
+### Prerequisites
+
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/kibolho/aluraquiz.git
+   ```
+2. Choose a Hook folder
+3. Install NPM packages
+   ```sh
+   npm install 
+   ```
+   or
+   ```sh
+   yarn 
+   ```
+4. Run the Project
+   ```sh
+   npm start 
+   ```
+   or
+   ```sh
+   yarn start
+   ```
 
 
-## Como pegar cores tema diferentes para minha app?
+<!-- USAGE EXAMPLES -->
+## Usage
 
-Você pode dar uma olhada nesse link e separar uma palheta que combine com sua imagem de background :) :
-- https://material-ui.com/customization/color/#playground
+Use this project to create quizzes and challenge your friend!
 
 
-# Contribuidores 
+<!-- CONTRIBUTING -->
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<!-- LICENSE -->
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+<!-- CONTACT -->
+## Contact
+
+Abílio Azevedo - [@abilioazevedo](https://www.linkedin.com/in/abilioazevedo/) - me@abilioazevedo.com.br
+
+Project Link: [https://github.com/kibolho/aluraquiz-abilioazevedo](https://github.com/kibolho/aluraquiz-abilioazevedo)
+
+
+<!-- ACKNOWLEDGEMENTS -->
+## Acknowledgements
+* [Alura](https://aluraquiz-base.alura-challenges.vercel.app/contribuidores)
+* [Img Shields](https://shields.io)
+* [Choose an Open Source License](https://choosealicense.com)
+* [GitHub Pages](https://pages.github.com)
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/kibolho/aluraquiz-abilioazevedo.svg?style=for-the-badge
+[contributors-url]: https://github.com/kibolho/aluraquiz-abilioazevedo/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/kibolho/aluraquiz-abilioazevedo.svg?style=for-the-badge
+[forks-url]: https://github.com/kibolho/aluraquiz-abilioazevedo/network/members
+[stars-shield]: https://img.shields.io/github/stars/kibolho/aluraquiz-abilioazevedo.svg?style=for-the-badge
+[stars-url]: https://github.com/kibolho/aluraquiz-abilioazevedo/stargazers
+[issues-shield]: https://img.shields.io/github/issues/kibolho/aluraquiz-abilioazevedo.svg?style=for-the-badge
+[issues-url]: https://github.com/kibolho/aluraquiz-abilioazevedo/issues
+[license-shield]: https://img.shields.io/badge/licence-MIT-blue.svg?style=flat-square
+[license-url]: https://img.shields.io/github/license/kibolho/custom-hooks.svg?style=for-the-badge
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/abilioazevedo/
+[product-screenshot]: /_docs/aluraquiz-base.png
+
+
+# Contributors 
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
@@ -54,12 +217,3 @@ Você pode dar uma olhada nesse link e separar uma palheta que combine com sua i
 
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-
-[![licence mit](https://img.shields.io/badge/licence-MIT-blue.svg?style=flat-square)](https://github.com/alura-challenges/aluraquiz-base/blob/master/LICENSE)
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-13-orange.svg?style=flat-square)](#contributors)
-<!-- ALL-CONTRIBUTORS-BADGE:END --> 
-

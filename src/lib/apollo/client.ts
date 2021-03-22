@@ -15,7 +15,7 @@ function createApolloClient() {
   return new ApolloClient({
     ssrMode: typeof window === "undefined",
     link: new HttpLink({
-      uri: `${baseUrl}/api/prisma`, // Server URL (must be absolute)
+      uri: `https://helping-hound-87.hasura.app/v1/graphql`, // Server URL (must be absolute)
       credentials: "same-origin", // Additional fetch() options like `credentials` or `headers`
     }),
     cache: new InMemoryCache({
